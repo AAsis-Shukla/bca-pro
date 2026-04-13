@@ -1,0 +1,64 @@
+/* Static CSS for Sign-Up Page */
+
+/* Styles for the overall container */
+.signUpContainer {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Styles for the heading */
+.signUpContainer h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Styles for the form elements */
+.input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Styles for error messages */
+#errorMsg {
+    color: red;
+    margin-bottom: 10px;
+}
+
+/* Styles for the submit button */
+.submit {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: #45a049;
+}
+
+/* Styles for the link to login */
+.signUpContainer p {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.signUpContainer p a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signUpContainer p a:hover {
+    text-decoration: underline;
+}
