@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entry Update</title>
+    <link rel="stylesheet" href="{% static 'css/IoIndex.css' %}">
+</head>
+
+<body>
+    <div class="formContainer">
+        <h1>Update Entry</h1>
+        <span style="color: rgb(242, 6, 6)">{{error_msg}}</span>
+        <span style="color: rgb(92, 16, 233)">{{seccess_msg}}</span><br>
+        <form action="#" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="inputField">
+                <label for="Product_name">Product Name</label>
+                <input type="text" name="Product_name" id="Product_name" value = "{{form.Product_name}}">
+            </div>
+            <div class="inputField">
+                <label for="Product_id">Product_id :</label>
+                <input type="number" name="Product_id" id="Product_id" value="{{form.Product_id}}">
+            </div>
+            <div class="inputField">
+                <label for="Product_inOut">Product In/Out :</label><br>
+                <select name="Product_inOut" id="Product_inOut">
+                    <option value="in">In</option>
+                    <option value="out">Out</option>
+                </select>
+            </div>
+            <div class="inputField">
+                <label for="Product_quantity">Quantity :</label>
+                <input type="number" name="Product_quantity" id="Product_quantity" value="{{form.Product_quantity}}" >
+            </div>
+            <div class="inputField">
+                <label for="Product_image">Product Image</label>
+                <input value="form.Product_image" type="file" name="Product_image" id="Product_image">
+            </div>
+            {% comment %} <div class="inputField">
+                <label for="E_res">Get Response on</label>
+                <input type="email" name="E_response" id="E_res">
+            </div> {% endcomment %}
+            <div id = "btn"><button type="submit">Update Entry</button></div>
+        </form>
+    </div>
+   
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IO User</title>
+    <link rel="stylesheet" href="{% static 'css/IoIndex.css' %}">
+</head>
+
+<body>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+    <div class="formContainer">
+        <h1 id="form_heading">Make Entry</h1>
+        <span style="color: rgb(242, 6, 6)">{{error_msg}}</span>
+        <span style="color: rgb(92, 16, 233)">{{seccess_msg}}</span><br>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="inputField">
+                <label for="Product_name">Product Name :</label>
+                <input type="text" name="Product_name" id="Product_name">
+            </div>
+            <div class="inputField">
+                <label for="Product_id">Product_id :</label>
+                <input type="number" name="Product_id" id="Product_id">
+            </div>
+            <div class="inputField">
+                <label for="Product_image">Product Image :</label>
+                <input type="file" name="Product_image" id="Product_image">
+            </div>
+            <div class="inputField">
+                <label for="Product_inOut">Product In/Out :</label><br>
+                <select name="Product_inOut" id="Product_inOut">
+                    <option value="in">In</option>
+                    <option value="out">Out</option>
+                </select>
+            </div>
+            <div class="inputField">
+                <label for="Product_quantity">Quantity :</label>
+                <input type="number" name="Product_quantity" id="Product_quantity">
+            </div>
+            <div id="btn"><button type="submit">Make Entry</button></div>
+        </form>
+    </div>
+    {% comment %} <form action="" method="post">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Submit">
+    </form> {% endcomment %}
+    <div class="Product_filter_container">
+
+        <form class="Product_filter">
+            <select class="select_opt" name="filter_by" id="">
+                <option value="name">Name</option>
+                <option value="Product_quantity">Product_quantity</option>
+                <option value="Product_inOut">Product_inOut</option>
+            </select>
+            <input type="text" name="filter_input" id="filter_input" placeholder="search">
+            <button type="submit">Search</button>
+        </form>
+        <div class="number_of_record">Total : {{form_length}}</div>
+        <div style="position : relative;right :50px;" class="number_of_record">{{request.user.username}}</div>
+        <div class="Product_sort_by">
+            <form>
+                <label for="sort_by">Sort By</label>
+                <select class="select_opt" name="sort_by" id="sort_by">
+                    <option value="name">Name</option>
+                    <option value="Oldest">Oldest</option>
+                    <option value="latest" selected>Latest</option>
+                </select>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="Product_container_header">
+        <div style="width: 5%;height: 100%;" class="srNumber">Sr.No</div>
+        <div style="width: 20%;height: 100%;" class="Product_name">Product Name</div>
+        <div style="width: 45%;height: 100%;" class="Product_desc">Product Description</div>
+        <div style="width: 15%;height: 100%;" class="Product_img">Product Image</div>
+        <div style="width: 10%;height: 100%;" class="Product_action">Actions</div>
+    </div>
+    {% for x in form %}
+    <br>
+    <div class="Product_container">
+        <div style="width: 5%;height: 100%;" class="srNumber">{{forloop.counter}}</div>
+        <div style="width: 20%;height: 100%;" class="Product_name">{{x.Product_name}}</div>
+        <div style="width: 45%;height: 100%;" class="Product_desc">{{x.Product_description}}</div>
+        <div style="width: 15%;height: 100%;" class="Product_img"><img src="media/{{x.Product_image}}"
+                alt="{{x.Product_image}}" style="height: 100px;"></div>
+        <div style="width: 10%;height: 100%;" class="Product_action">
+            <div style="background-color: red;" class="abtn"><a href="/deleteEntry/{{x.id}}">Delete</a></div>
+            <div style="background-color: rgb(30, 221, 23);" class="abtn"><a href="/IoUpdate/{{x.id}}">Update</a>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</body>
+
+</html>

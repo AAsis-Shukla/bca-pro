@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static "css/index.css" %}">
+</head>
+
+<body onload="showTime()">
+    <!-- header section -->
+
+    <div class="headerContainer">
+        <div class="logo"><img src="static/img/InventoryLogo.png" alt="Logo"></div>
+        <div class="searchBar">
+            <select name="" id="">
+                <option value="">All</option>
+                <option value="">Link</option>
+            </select>
+            <input type="text" id="searchInput" name="searchInput" placeholder="Search Here">
+            <button type="submit" id="searchHandle"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <nav class="navBar">
+            <ul>
+                <li><a href="#HomeSection">Home</a></li>
+                <li><a href="#AboutSection">About</a></li>
+                <li><a href="#ServicesSection">Our Services</a></li>
+                <li><a href="#contact_section">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="header2Container">
+        <div id="showTime" class="other"></div>
+        <div class="signUp"><a href="{% url "signup" %}">SignUp</a></div>
+        <div class="signUp"><a href="{% url "login" %}">SignIn</a></div>
+    </div>
+
+    <!-- main content Container -->
+    <div id="HomeSection" class="HomePage mnt">
+        <div class="box1">
+            <h1>Inventory Management System</h1>
+            <div>
+                <p><em>Developed By :</em></p>
+                <p style="font-size: large;"><b>Ashish Kumar shukla</b></p>
+                <p>Full Stack Developer</p>
+                <p>Using Python <b><i>(Django)</i></b> Framework</p>
+            </div>
+        </div>
+        <img src="static/img/image2.jpg" alt="">
+    </div>
+
+    <div id="AboutSection" class="AboutPage mnt">
+        <img src="static/img/image1.jpg" alt="">
+        <div class="box1">
+            <h1>What is an IMS</h1>
+            <p style="line-height: 30px; word-spacing: 5px;text-align: justify;">An inventory management system is
+                software that helps track a company's inventory and sales. It supports
+                employees by providing accurate inventory numbers and keeping products organized. This helps a company
+                manage its stock, fill orders and track the overall production or sales. Using an electronic inventory
+                management system requires minimal training and can help make inventory management more efficient.</p>
+        </div>
+    </div>
+
+    <div id="ServicesSection" class="OurServices mnt">
+        <img src="static/img/image3.jpg" alt="">
+        <div class="box1">
+            <h1>What this system can do</h1>
+            <ul style="line-height: 25px;font-size: x-large;">
+                <li>Real-time Tracking</li>
+                <li>Cost Control</li>
+                <li>Demand Forecasting</li>
+                <li>Order Management</li>
+                <li>Supplier Relationship Management</li>
+                <li>Barcode and RFID Integration</li>
+                <li>Stock Valuation</li>
+                <li>ABC Analysis</li>
+                <li>Just-In-Time (JIT) Inventory</li>
+                <li>Reporting and Analytics</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+
+    <div id="contact_section" class="ContactFormContainer">
+        <h1 style="font-size: 50px;">Contact Us</h1>
+        <span id="submitted_msg" style="font-size: 20px;color: #3c0bef;">{{success_message}}</span>
+        <form method="post" action="#contact_section" onsubmit="return validateForm()">
+            {% csrf_token %}
+            <div> <label for="Name">Name:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="customerName" id="Name" placeholder="Enter your name" required><br>
+                <span id="nameLabel" style="color: red;"></span>
+            </div>
+
+            <div><label for="email">Email: </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="email" name="customerEmail" id="email" placeholder="enter your email" required>
+            </div>
+
+            <div>
+                <label for="phone">Contact:</label>
+                <input type="text" name="number" id="phone" placeholder="xxx-xxx-xxxx" required>
+                <br> <span id="phoneErr" style="color: red;"></span>
+            </div>
+
+            <div style="display: flex;"> <label for="w3review">Massege:</label><br>
+                <textarea style="background-color: #F2EFE5;" id="w3review" name="w3review" rows="8" cols="55"
+                    placeholder="Enter your text here..."> </textarea><br>
+            </div>
+            <div id="submitBox">
+                <button type="submit" id="submit">submit</button>
+            </div>
+        </form>
+
+    </div>
+
+
+
+    <!-- Footer Section  -->
+    <footer>
+        <div class="goToBack">
+            <a href=""> Go To Back </a>
+        </div>
+        <div class="listContainer">
+            <div class="list1">
+                <div class="heading">Get to Know Us</div>
+                <ul>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Careers</a></li>
+                    <li><a href="">Press Releases</a></li>
+                    <li><a href="">Amazon Science</a></li>
+                </ul>
+            </div>
+            <div class="list1">
+                <div class="heading">Connect with Us</div>
+                <ul>
+                    <li><a href=""> Facebook</a></li>
+                    <li><a href="">Twitter</a></li>
+                    <li><a href=""> Instagram</a></li>
+                </ul>
+            </div>
+            <div class="list1">
+                <div class="heading">Make Money with Us</div>
+                <ul>
+                    <li><a href=""> Sell on Amazon</a></li>
+                    <li><a href="">Sell under Amazon Accelerator</a></li>
+                    <li><a href="">Protect and Build Your Brand</a></li>
+                    <li><a href="">Amazon Global Selling</a></li>
+                    <li><a href="">Become an Affiliate</a></li>
+                    <li><a href="">Fulfilment by Amazon</a></li>
+                    <li><a href="">Advertise Your Products</a></li>
+                    <li><a href="">Amazon Pay on Merchants</a></li>
+                </ul>
+            </div>
+            <div class="list1">
+                <div class="heading">Let Us Help You</div>
+                <ul>
+                    <li><a href=""> COVID-19 and Amazon</a></li>
+                    <li><a href="">Your Account</a></li>
+                    <li><a href="">Returns Centre</a></li>
+                    <li><a href="">100% Purchase Protection</a></li>
+                    <li><a href="">Amazon App Download</a></li>
+                    <li><a href="">Help</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="logoFooter">
+            <img style="border-radius: 20px;" src="static/img/InventoryLogo.png" alt="logo">
+        </div>
+    </footer>
+</body>
+<script src="static/js/index.js"></script>
+
+</html>

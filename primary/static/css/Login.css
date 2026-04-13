@@ -1,0 +1,44 @@
+
+
+/* Styles for the overall container */
+.signUpContainer {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif; /* Use a common font for better compatibility */
+}
+
+/* Styles for the heading */
+.signUpContainer h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Styles for the form elements */
+.input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Styles for error messages */
+#errorMsg {
+    color: red;
+    margin-bottom: 10px;
+}
+
+/* Styles for the submit button */
+.submit {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+}
