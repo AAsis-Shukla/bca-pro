@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="static/css/Login.css">
+    <link rel="stylesheet" href="{% static 'css/Login.css' %}">
 </head>
+
 <body>
     <div class="signUpContainer">
         <h1>Login</h1>
@@ -13,11 +15,11 @@
         <form onsubmit="return validatePassword()" action="{% url 'login' %}" method="post">
             {% csrf_token %}
             <div>
-                <label  for="email">Email:</label>
+                <label for="email">Email:</label>
                 <input class="input" type="email" name="email" id="email" placeholder="Enter your Email id" required>
             </div>
             {% comment %} <div>
-                <label  for="users">Choose Role:</label>
+                <label for="users">Choose Role:</label>
                 <select class="input" name="User" id="users">
                     <option value="As a Admin user">Admin</option>
                     <option selected value="As a guist user">Guest</option>
@@ -25,7 +27,7 @@
                 </select>
             </div> {% endcomment %}
             <div>
-                <label  for="password">Password:</label>
+                <label for="password">Password:</label>
                 <input class="input" type="password" name="password" id="password" required>
             </div>
             <button class="submit" type="submit">submit</button>
@@ -34,12 +36,13 @@
 
             <!-- <div><input class="submit" type="submit" value="Submit" src="Admin.html"></div> -->
             <div>
-                <p>Not yet registered <a href="{% url "signup" %}">Sign Up</a></p>
-            
+                <p>Not yet registered <a href="{% url 'signup' %}">Sign Up</a></p>
+
             </div>
         </form>
 
     </div>
 </body>
-<script src="static/js/Login.js"></script>
+<script src="{% static 'js/Login.js' %}"></script>
+
 </html>

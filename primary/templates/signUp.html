@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>signUp</title>
-    <link rel="stylesheet" href="static/css/signUp.css">
+    <link rel="stylesheet" href="{% static 'css/signUp.css' %}">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
         <span style="color: rgb(84, 22, 231);font-size: larger;">{{success_message}}</span>
         <form onsubmit="return validatePassword()" action="{% url 'signup' %}" method="post">
             {% csrf_token %}
-            
+
             <div>
                 <label for="Name">Name:</label>
                 <input class="input" type="text" name="Name" id="Name" placeholder="Enter  your name" required>
@@ -23,18 +23,18 @@
             </div>
 
             <div>
-                <label  for="phone">Phone_number:</label>
+                <label for="phone">Phone_number:</label>
                 <input class="input" type="text" name="Phone" id="phone" placeholder="xxx-xxx-xxxx" required>
                 <br> <span id="phoneErr" style="color: red;"></span>
             </div>
 
             <div>
-                <label  for="email">Email:</label>
+                <label for="email">Email:</label>
                 <input class="input" type="email" name="email" id="email" placeholder="Enter your mail" required>
             </div>
 
             <div>
-                <label  for="users">Choose Role:</label>
+                <label for="users">Choose Role:</label>
                 <select class="input" name="User" id="users">
                     <option value="As a Admin user">Admin</option>
                     <option selected value="As a guist user">Guest</option>
@@ -44,12 +44,12 @@
 
 
             <div>
-                <label  for="password">Create password:</label>
+                <label for="password">Create password:</label>
                 <input class="input" type="password" name="password" id="password" required>
             </div>
 
             <div>
-                <label  for="confirm-password">Confirm password:</label>
+                <label for="confirm-password">Confirm password:</label>
                 <input class="input" type="password" name="confirmPassword" id="confirm-password" required>
                 <br><span id="passwordErr" style="color: red;"></span>
             </div>
@@ -60,13 +60,13 @@
 
             <!-- <div><input class="submit" type="submit" value="Submit" src="Admin.html"></div> -->
             <div>
-                <p>Already have an account <a href="{% url "login" %}">login</a></p>
+                <p>Already have an account <a href="{% url 'login' %}">login</a></p>
             </div>
         </form>
 
     </div>
 
 </body>
-<script src="static/js/signUp.js"></script>
+<script src="{% static 'js/signUp.js' %}"></script>
 
 </html>
