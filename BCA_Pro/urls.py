@@ -23,7 +23,7 @@ from primary import urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include("primary.urls")),
-    # path('/al/',include("Admin0.urls")),
+    path('/al/',include("Admin0.urls")),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
