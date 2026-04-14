@@ -36,6 +36,6 @@ class Product_Entry(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     Product_name = models.TextField(max_length = 200)
     Product_image = models.ImageField(upload_to = "Product_Entry_Image",max_length=250,default=None)
-    Product_id = models.IntegerField(max_length=20,default=None,null=False)
-    Product_quantity = models.IntegerField(max_length=50,null=False)
+    Product_id = models.IntegerField(default=None,null=False)
+    Product_quantity = models.IntegerField(null=False)
     Product_inOut = models.CharField(max_length=10, choices=ch, default='out')
